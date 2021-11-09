@@ -349,8 +349,7 @@ def tallasdisponibles(update, context):
                 if talla_buscada == talla:
                     producto["talla-encontrada"] += talla_buscada +"/"
         tallas_encontradas.append(producto)
-    print("Tallas encontradas: ",tallas_encontradas)
-    
+    print("Tallas encontradas: ",tallas_encontradas)  
     mensaje_respuesta = "Hemos encontrado estas zapatillas con la talla buscada!: \n"
     count = 0
     for zapatilla_con_talla in tallas_encontradas:
@@ -360,8 +359,7 @@ def tallasdisponibles(update, context):
             update.message.reply_text(mensaje_respuesta)
     print("En total {0} productos encontrados".format(count))
     if count == 0:
-        update.message.reply_text("Actualmente no quedan zapatillas con la talla/s {0}".format(tallas_buscadas))
-        
+        update.message.reply_text("Actualmente no quedan zapatillas con la talla/s {0}".format(tallas_buscadas))   
 
 def help(update, context):
     """Send a message when the command /help is issued."""
@@ -442,7 +440,6 @@ def concurrent_search(producto):
     except:
         pass
     capturar_producto(driver,producto["Nombre"].strip())
-    
     
     driver.quit()
   
