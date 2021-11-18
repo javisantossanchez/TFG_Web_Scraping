@@ -305,10 +305,10 @@ def capturar_producto(driver,nombre_de_producto):
     driver.execute_script("document.body.style.MozTransform='scale(1)';")
 
 def generarjson(todos_los_productos,productos_disponibles):
-    with open('mongodb/database/products/todos_los_productos.json','a') as jsonFile:
+    with open('mongodb/database/products/todos_los_productos.json','w') as jsonFile:
         json.dump(todos_los_productos, jsonFile)
 
-    with open('mongodb/database/products/productos_disponibles.json','a') as jsonFile:
+    with open('mongodb/database/products/productos_disponibles.json','w') as jsonFile:
         json.dump(productos_disponibles, jsonFile)
 
 
@@ -481,10 +481,4 @@ if "__main__" == __name__:
     generarjson(nike.todos_los_productos,productos_disponibles)
     #nike.driver.quit()
     
-
-    '''
-    driver = inicializar_buscador()
-    driver.get("https://www.nike.com/es/launch/t/acg-mountain-fly-dark-grey")
-    capturar_producto(driver,"ACG Mountain Fly GORE-TEX Dark Grey")
-    '''
     main()
