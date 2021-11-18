@@ -10,11 +10,11 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 import logging
+import json
 import _thread as thread
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import time
 from threading import Thread
-from numpy.random import randint
 from multiprocessing import Queue, cpu_count
 from PIL import Image
 from concurrent import futures
@@ -29,24 +29,26 @@ class PDF(FPDF):
             self.pdf.set_text_color(0, 51, 69)
             self.pdf.cell(200, 7, txt=producto["Nombre"], ln=1, align="L")
             self.pdf.ln(10)
-            
-            el_precio_del_producto_parseado = producto["Precio"].replace(u"\u202f€","")         
-            el_precio_del_producto_parseado = el_precio_del_producto_parseado + chr(128) #SIMBOLO DEL EURO EN ASCII
-           
-            cover = Image.open("imagenes/"+producto["Nombre"]+".png")
-            width, height = cover.size
-
             self.pdf.set_font("Arial", 'B', size=10)
             self.pdf.set_text_color(0, 51, 69)
-            #print("WIDTH HEIGHT: ",width,height)
-            self.pdf.cell(200, 4, txt="Precio "+el_precio_del_producto_parseado, ln=1, align="L")
-            self.pdf.ln(5)
+
+            if "precio" in producto:            
+                el_precio_del_producto_parseado = producto["Precio"].replace(u"\u202f€","")         
+                el_precio_del_producto_parseado = el_precio_del_producto_parseado + chr(128) #SIMBOLO DEL EURO EN ASCII
+                self.pdf.cell(200, 4, txt="Precio "+el_precio_del_producto_parseado, ln=1, align="L")
+                self.pdf.ln(5)
+                          
+            cover = Image.open("mongodb/database/imagenes/"+producto["Nombre"]+".png")
+            width, height = cover.size
+            producto["Imagen"] = "/home/database/imagenes/"+producto["Nombre"]+".png"
+
             self.pdf.cell(200, 2, txt="Url: "+producto["url"], ln=1, align="L")
             self.pdf.ln(5)
             self.pdf.set_text_color(0, 0, 0)
             self.pdf.set_font("Arial", size=13)
-            self.pdf.image("imagenes/"+producto["Nombre"]+".png", w = width/(3.5), h=height/(3.5))
+            self.pdf.image("mongodb/database/imagenes/"+producto["Nombre"]+".png", w = width/(3.5), h=height/(3.5))
             self.pdf.footer()
+
         self.pdf.output("primerpdf.pdf")
         print("IMPRIMIENDO PDF")
 
@@ -100,6 +102,7 @@ class NikeShop:
         end = time.time()
         print("Tiempo empleado en inspeccionar main_page {0}".format(end - start))
         print("Tenemos estos datos: ",self.todos_los_productos)
+        self.driver.quit()
         driver2.quit()
 
         #self.todos_los_productos = [{'Nombre': 'Air Max BW Lyon ', 'State': 'Notifícame', 'data-qa': 'product-card-1'}, {'Nombre': 'Air Max 1 x Patta Aqua Noise ', 'State': 'Notifícame', 'data-qa': 'product-card-4'}, {'Nombre': 'Air Jordan 14 Low para mujer Shocking Pink ', 'State': 'Notifícame', 'data-qa': 'product-card-8'}, {'Nombre': "Blazer Mid '77 Sequoia Quilt  ", 'State': 'Notifícame', 'data-qa': 'product-card-14'}, {'Nombre': "Blazer Mid '77 Sail Quilt ", 'State': 'Notifícame', 'data-qa': 'product-card-15'}, {'Nombre': 'Air Force 1 Next Nature Brown Kelp ', 'State': 'Notifícame', 'data-qa': 'product-card-16'}, {'Nombre': 'Air Force 1 Toasty ', 'State': 'Notifícame', 'data-qa': 'product-card-17'}, {'Nombre': 'Air Force 1 Winter Premium Summit White ', 'State': 'Producto agotado', 'data-qa': 'product-card-18'}, {'Nombre': 'Air Force 1 x Alyx University Red and Black ', 'State': 'Producto agotado', 'data-qa': 'product-card-20'}, {'Nombre': 'Air Force 1 x Alyx Black and University Red ', 'State': 'Producto agotado', 'data-qa': 'product-card-21'}, {'Nombre': 'LDWaffle x sacai x UNDERCOVER Midnight Spruce and University Red ', 'State': 'Producto agotado', 'data-qa': 'product-card-22'}, {'Nombre': 'LDWaffle x sacai x UNDERCOVER Night Maroon and Team Royal  ', 'State': 'Producto agotado', 'data-qa': 'product-card-23'}, {'Nombre': 'LDWaffle x sacai x UNDERCOVER Black and Bright Citron ', 'State': 'Producto agotado', 'data-qa': 'product-card-24'}, {'Nombre': 'Dunk High para mujer Next Nature Summit White ', 'State': 'Notifícame', 'data-qa': 'product-card-25'}, {'Nombre': 'Air Force 1 para mujer Pecan Quilt ', 'State': 'Notifícame', 'data-qa': 'product-card-26'}, {'Nombre': 'Air Jordan 3 Pine Green ', 'State': 'Producto agotado', 'data-qa': 'product-card-28'}, {'Nombre': 'SB Dunk Low Mummy ', 'State': 'Producto agotado', 'data-qa': 'product-card-29'}, {'Nombre': "Jordan Series .03 Dear '90s ", 'State': 'Comprar', 'data-qa': 'product-card-32', 'url': 'https://www.nike.com/es/launch/t/jordan-series-03-dear-90s'}, {'Nombre': 'Air Force 1 Mid Jewel NYC Cool Grey ', 'State': 'Comprar', 'data-qa': 'product-card-33', 'url': 'https://www.nike.com/es/launch/t/air-force-1-mid-jewel-nyc-cool-grey'}, {'Nombre': 'Air Force 1 Mid Jewel NYC Midnight Navy ', 'State': 'Producto agotado', 'data-qa': 'product-card-34'}, {'Nombre': 'Air Jordan 5 para mujer Bluebird ', 'State': 'Comprar', 'data-qa': 'product-card-35', 'url': 'https://www.nike.com/es/launch/t/womens-air-jordan-5-bluebird'}, {'Nombre': 'BE-DO-WIN Hyper Royal ', 'State': 'Comprar', 'data-qa': 'product-card-36', 'url': 'https://www.nike.com/es/launch/t/be-do-win-hyper-royal'}, {'Nombre': 'Air Max BW Persian Violet ', 'State': 'Producto agotado', 'data-qa': 'product-card-42'}, {'Nombre': 'NOCTA Golf Colección de ropa ', 'State': 'Producto agotado', 'data-qa': 'product-card-45'}, {'Nombre': 'Air Jordan 11 Low IE Bred ', 'State': 'Comprar', 'data-qa': 'product-card-48', 'url': 'https://www.nike.com/es/launch/t/air-jordan-11-low-ie-bred'}, {'Nombre': 'Free Run 2 Pure Platinum ', 'State': 'Comprar', 'data-qa': 'product-card-50', 'url': 'https://www.nike.com/es/launch/t/free-run-2-pure-platinum'}, {'Nombre': 'Air Huarache Toadstool ', 'State': 'Comprar', 'data-qa': 'product-card-52', 'url': 'https://www.nike.com/es/launch/t/air-huarache-toadstool'}, {'Nombre': 'Producto agotado', 'State': 'Producto agotado', 'data-qa': 'product-card-53'}, {'Nombre': 'SB Dunk High Gundam ', 'State': 'Producto agotado', 'data-qa': 'product-card-54'}, {'Nombre': 'Air Jordan 1 Prototype ', 'State': 'Producto agotado', 'data-qa': 'product-card-55'}, {'Nombre': 'Free Run 2 Black and White ', 'State': 'Comprar', 'data-qa': 'product-card-56', 'url': 'https://www.nike.com/es/launch/t/free-run-2-black-white'}, {'Nombre': 'Air Jordan 13 Obsidian ', 'State': 'Comprar', 'data-qa': 'product-card-57', 'url': 'https://www.nike.com/es/launch/t/air-jordan-13-obsidian1'}, {'Nombre': 'Free Run Trail Thunder Blue ', 'State': 'Comprar', 'data-qa': 'product-card-58', 'url': 'https://www.nike.com/es/launch/t/free-run-trail-thunder-blue'}, {'Nombre': 'Air Jordan 5 Moonlight ', 'State': 'Producto agotado', 'data-qa': 'product-card-60'}, {'Nombre': 'Dunk High Up para mujer Varsity Maize ', 'State': 'Producto agotado', 'data-qa': 'product-card-61'}, {'Nombre': 'Air Force 1 Jewels ', 'State': 'Producto agotado', 'data-qa': 'product-card-62'}, {'Nombre': 'Air Jordan 14 Low para mujer Iconic Red ', 'State': 'Comprar', 'data-qa': 'product-card-64', 'url': 'https://www.nike.com/es/launch/t/womens-air-jordan-14-low-iconic-red1'}]
@@ -273,11 +276,14 @@ def capturar_producto(driver,nombre_de_producto):
    
     driver.execute_script("document.body.style.MozTransform='scale(0.55)';")
     
-    body = WebDriverWait(driver, 4).until(EC.presence_of_element_located((By.XPATH, "//h1[contains(@class,'headline')]")))
+    #body = WebDriverWait(driver, 4).until(EC.presence_of_element_located((By.XPATH, "//h1[contains(@class,'headline')]")))
+    ##CAMBIO DEBIDO A QUE LA PAGINA DE NIKE TIENE UN BUG CON UNA ZAPATILLA
+    body = WebDriverWait(driver, 4).until(EC.presence_of_element_located((By.XPATH, "//div[@data-qa = 'feed-menu']")))
+    
     scroll_shim(driver, body)
     cursor = ActionChains(driver)
     cursor.move_to_element(body).perform()
-    time.sleep(1)
+    time.sleep(2)
     captura_zapatilla = WebDriverWait(driver, 4).until(EC.presence_of_element_located((By.XPATH, "//section[contains(@class,'card-product-component')]")))
     prueba_top = WebDriverWait(driver, 4).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class,'feed-header')]")))
 
@@ -290,13 +296,20 @@ def capturar_producto(driver,nombre_de_producto):
     right = div_zapatilla['x'] + sizeofdiv['width']
     bottom = sizeofdiv['height']
     #print(left,top,right,bottom)
-    driver.save_screenshot("imagenes/"+nombre_de_producto+".png")
+
+    driver.save_screenshot("mongodb/database/imagenes/"+nombre_de_producto+".png")
     print("-----Guardando la captura de {0}".format(nombre_de_producto))
-    im = Image.open("imagenes/"+nombre_de_producto+".png") # uses PIL library to open image in memory
+    im = Image.open("mongodb/database/imagenes/"+nombre_de_producto+".png") # uses PIL library to open image in memory
     im = im.crop((left, 0 + (dir_top_size['height'])*3, right, bottom)) # defines crop points
-    im.save("imagenes/"+nombre_de_producto+".png") # saves new cropped image
+    im.save("mongodb/database/imagenes/"+nombre_de_producto+".png") # saves new cropped image
     driver.execute_script("document.body.style.MozTransform='scale(1)';")
 
+def generarjson(todos_los_productos,productos_disponibles):
+    with open('mongodb/database/products/todos_los_productos.json','a') as jsonFile:
+        json.dump(todos_los_productos, jsonFile)
+
+    with open('mongodb/database/products/productos_disponibles.json','a') as jsonFile:
+        json.dump(productos_disponibles, jsonFile)
 
 
 
@@ -464,5 +477,14 @@ if "__main__" == __name__:
     
     print("\n----------------------------------------------------------------------------------PRODUCTOS DISPONIBLES:----------------------------------------------------------------------------------\n",productos_disponibles)
     pdf = PDF(productos_disponibles)
-    nike.driver.quit()
+
+    generarjson(nike.todos_los_productos,productos_disponibles)
+    #nike.driver.quit()
+    
+
+    '''
+    driver = inicializar_buscador()
+    driver.get("https://www.nike.com/es/launch/t/acg-mountain-fly-dark-grey")
+    capturar_producto(driver,"ACG Mountain Fly GORE-TEX Dark Grey")
+    '''
     main()

@@ -1,0 +1,5 @@
+mongodb/database/imagenes/*
+json
+imagenes
+geckodriver
+geckodriver.log
