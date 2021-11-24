@@ -155,6 +155,7 @@ def comprobar_estado_productos(driver,all_products):
             product_card_id = product.get_attribute("data-qa")
             print("----------------------Product number: {0}---------------------- \n {1}".format(indice,product.text))
             el_producto["Nombre"] = product.text.replace("\n","").strip()
+            el_producto["_id"] = el_producto["Nombre"]
             print("PRODUCT ID: ",product_card_id)
             #Por cada producto, aquellos que no son Más Información o vacío (lo cual es un anuncio en la página) -#if de arriba- localiza el producto de manera individual
             #ya que no era posible inspeccionar sus hijos (no se muy bien por qué)
@@ -229,7 +230,7 @@ def buscar_index_producto(todos_los_productos,identificador):
             return todos_los_productos.index(producto)
 
 #def obtener_precio_productos(driver,todos_los_productos):
-    productos_disponibles = obtener_productos_disponibles(todos_los_productos)
+    #productos_disponibles = obtener_productos_disponibles(todos_los_productos)
     #print("Todos los productos disponibles: ",productos_disponibles)
     #DEPRECATED CODE, se queda por si algún día me hace falta.
     '''for item in productos_disponibles:       
@@ -475,4 +476,4 @@ if "__main__" == __name__:
     generarjson(nike.todos_los_productos,productos_disponibles)
     #nike.driver.quit()
     
-    main()
+    #main()

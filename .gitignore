@@ -1,5 +1,8 @@
 mongodb/database/imagenes/*
+token
 json
 imagenes
 geckodriver
 geckodriver.log
+cookies.pkl
+prueba.py

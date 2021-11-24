@@ -1,0 +1,231 @@
+------recaudado por zapata 749.0
+------recaudado por zapata 2488.0
+------recaudado por zapata 1619.0
+------recaudado por zapata 2101.0
+------recaudado por zapata 2107.0
+------recaudado por zapata 246.0
+------recaudado por zapata 1139.0
+Total gastao:  12413
+------recaudado por zapata 726.0
+------recaudado por zapata 740.0
+------recaudado por zapata 609.0
+------recaudado por zapata 607.0
+------recaudado por zapata 172.0
+------recaudado por zapata 573.0
+------recaudado por zapata 1063.0
+Total gastao:  5888
+------recaudado por zapata 2359.0
+------recaudado por zapata 972.0
+------recaudado por zapata 1769.0
+------recaudado por zapata 1632.0
+------recaudado por zapata 2756.0
+------recaudado por zapata 1418.0
+------recaudado por zapata 2594.0
+Total gastao:  19497
+------recaudado por zapata 955.0
+------recaudado por zapata 1321.0
+------recaudado por zapata 1321.0
+------recaudado por zapata 2033.0
+------recaudado por zapata 3310.0
+------recaudado por zapata 857.0
+------recaudado por zapata 1781.0
+Total gastao:  15579
+------recaudado por zapata 506.0
+------recaudado por zapata 1520.0
+------recaudado por zapata 1295.0
+------recaudado por zapata 1297.0
+------recaudado por zapata 2504.0
+------recaudado por zapata 611.0
+------recaudado por zapata 2694.0
+Total gastao:  12766
+------recaudado por zapata 1634.0
+------recaudado por zapata 2299.0
+------recaudado por zapata 2661.0
+------recaudado por zapata 3560.0
+------recaudado por zapata 2093.0
+------recaudado por zapata 1084.0
+------recaudado por zapata 2332.0
+Total gastao:  22355
+------recaudado por zapata 1071.0
+------recaudado por zapata 2445.0
+------recaudado por zapata 1023.0
+------recaudado por zapata 2129.0
+------recaudado por zapata 2087.0
+------recaudado por zapata 1365.0
+------recaudado por zapata 2650.0
+Total gastao:  17843
+------recaudado por zapata 369.0
+------recaudado por zapata 1132.0
+------recaudado por zapata 928.0
+------recaudado por zapata 601.0
+------recaudado por zapata 654.0
+------recaudado por zapata 122.0
+------recaudado por zapata 143.0
+Total gastao:  5220
+------recaudado por zapata 690.0
+------recaudado por zapata 327.0
+------recaudado por zapata 693.0
+------recaudado por zapata 1365.0
+------recaudado por zapata 359.0
+------recaudado por zapata 529.0
+------recaudado por zapata 289.0
+Total gastao:  7507
+------recaudado por zapata 304.0
+------recaudado por zapata 553.0
+------recaudado por zapata 1426.0
+------recaudado por zapata 875.0
+------recaudado por zapata 1015.0
+------recaudado por zapata 247.0
+------recaudado por zapata 986.0
+Total gastao:  7477
+------recaudado por zapata 6103.0
+------recaudado por zapata 2246.0
+------recaudado por zapata 5020.0
+------recaudado por zapata 7136.0
+------recaudado por zapata 3925.0
+------recaudado por zapata 1116.0
+Total gastao:  38518
+------recaudado por zapata 6103.0
+------recaudado por zapata 2246.0
+------recaudado por zapata 5020.0
+------recaudado por zapata 7136.0
+------recaudado por zapata 3925.0
+------recaudado por zapata 1116.0
+Total gastao:  38518
+_________________________________________________________ STOCKX
+[{'Nombre': 'ACG Mountain Fly GORE-TEX Clay Green', 'Total gastado': 12413, 'Media': 214.01724137931035, 'Popular Size': {9.0: {'Media recaudada': 187.25, 'Max sale': 218.0, 'Total ventas': 4.0}, 9.5: {'Media recaudada': 191.3846153846154, 'Max sale': 218.0, 'Total ventas': 13.0}, 10.0: {'Media recaudada': 231.28571428571428, 'Max sale': 265.0, 'Total ventas': 7.0}, 10.5: {'Media recaudada': 210.1, 'Max sale': 237.0, 'Total ventas': 10.0}, 11.0: {'Media recaudada': 210.7, 'Max sale': 241.0, 'Total ventas': 10.0}, 11.5: {'Media recaudada': 246.0, 'Max sale': 246.0, 'Total ventas': 1.0}, 12.0: {'Media recaudada': 227.8, 'Max sale': 265.0, 'Total ventas': 5.0}}}, {'Nombre': 'ACG Air Mowabb Trails End Brown', 'Total gastado': 5888, 'Media': 173.1764705882353, 'Popular Size': {9.0: {'Media recaudada': 181.5, 'Max sale': 208.0, 'Total ventas': 4.0}, 9.5: {'Media recaudada': 148.0, 'Max sale': 159.0, 'Total ventas': 5.0}, 10.0: {'Media recaudada': 152.25, 'Max sale': 168.0, 'Total ventas': 4.0}, 10.5: {'Media recaudada': 151.75, 'Max sale': 166.0, 'Total ventas': 4.0}, 11.0: {'Media recaudada': 172.0, 'Max sale': 172.0, 'Total ventas': 1.0}, 11.5: {'Media recaudada': 191.0, 'Max sale': 197.0, 'Total ventas': 3.0}, 12.0: {'Media recaudada': 212.6, 'Max sale': 315.0, 'Total ventas': 5.0}}}, {'Nombre': 'Air Jordan 14 Winterized', 'Total gastado': 19497, 'Media': 194.97, 'Popular Size': {9.0: {'Media recaudada': 196.58333333333334, 'Max sale': 199.0, 'Total ventas': 12.0}, 9.5: {'Media recaudada': 194.4, 'Max sale': 195.0, 'Total ventas': 5.0}, 10.0: {'Media recaudada': 196.55555555555554, 'Max sale': 205.0, 'Total ventas': 9.0}, 10.5: {'Media recaudada': 204.0, 'Max sale': 208.0, 'Total ventas': 8.0}, 11.0: {'Media recaudada': 196.85714285714286, 'Max sale': 207.0, 'Total ventas': 14.0}, 11.5: {'Media recaudada': 202.57142857142858, 'Max sale': 205.0, 'Total ventas': 7.0}, 12.0: {'Media recaudada': 199.53846153846155, 'Max sale': 210.0, 'Total ventas': 13.0}}}, {'Nombre': 'ACG Air Mowabb Limestone', 'Total gastado': 15579, 'Media': 171.1978021978022, 'Popular Size': {9.0: {'Media recaudada': 159.16666666666666, 'Max sale': 170.0, 'Total ventas': 6.0}, 9.5: {'Media recaudada': 165.125, 'Max sale': 191.0, 'Total ventas': 8.0}, 10.0: {'Media recaudada': 165.125, 'Max sale': 201.0, 'Total ventas': 8.0}, 10.5: {'Media recaudada': 169.41666666666666, 'Max sale': 215.0, 'Total ventas': 12.0}, 11.0: {'Media recaudada': 174.21052631578948, 'Max sale': 244.0, 'Total ventas': 19.0}, 11.5: {'Media recaudada': 171.4, 'Max sale': 188.0, 'Total ventas': 5.0}, 12.0: {'Media recaudada': 178.1, 'Max sale': 235.0, 'Total ventas': 10.0}}}, {'Nombre': 'ACG Air Mowabb Olive Grey', 'Total gastado': 12766, 'Media': 199.46875, 'Popular Size': {9.0: {'Media recaudada': 168.66666666666666, 'Max sale': 188.0, 'Total ventas': 3.0}, 9.5: {'Media recaudada': 190.0, 'Max sale': 213.0, 'Total ventas': 8.0}, 10.0: {'Media recaudada': 185.0, 'Max sale': 208.0, 'Total ventas': 7.0}, 10.5: {'Media recaudada': 185.28571428571428, 'Max sale': 209.0, 'Total ventas': 7.0}, 11.0: {'Media recaudada': 192.6153846153846, 'Max sale': 211.0, 'Total ventas': 13.0}, 11.5: {'Media recaudada': 203.66666666666666, 'Max sale': 214.0, 'Total ventas': 3.0}, 12.0: {'Media recaudada': 224.5, 'Max sale': 260.0, 'Total ventas': 12.0}}}, {'Nombre': 'ACG Mountain Fly GORE-TEX Dark Grey', 'Total gastado': 22355, 'Media': 223.55, 'Popular Size': {9.0: {'Media recaudada': 204.25, 'Max sale': 237.0, 'Total ventas': 8.0}, 9.5: {'Media recaudada': 209.0, 'Max sale': 261.0, 'Total ventas': 11.0}, 10.0: {'Media recaudada': 221.75, 'Max sale': 312.0, 'Total ventas': 12.0}, 10.5: {'Media recaudada': 237.33333333333334, 'Max sale': 360.0, 'Total ventas': 15.0}, 11.0: {'Media recaudada': 232.55555555555554, 'Max sale': 308.0, 'Total ventas': 9.0}, 11.5: {'Media recaudada': 216.8, 'Max sale': 256.0, 'Total ventas': 5.0}, 12.0: {'Media recaudada': 233.2, 'Max sale': 302.0, 'Total ventas': 10.0}}}, {'Nombre': 'Air Max 95 Khaki and Total Orange', 'Total gastado': 17843, 'Media': 178.43, 'Popular Size': {9.0: {'Media recaudada': 178.5, 'Max sale': 220.0, 'Total ventas': 6.0}, 9.5: {'Media recaudada': 174.64285714285714, 'Max sale': 215.0, 'Total ventas': 14.0}, 10.0: {'Media recaudada': 170.5, 'Max sale': 251.0, 'Total ventas': 6.0}, 10.5: {'Media recaudada': 177.41666666666666, 'Max sale': 245.0, 'Total ventas': 12.0}, 11.0: {'Media recaudada': 173.91666666666666, 'Max sale': 233.0, 'Total ventas': 12.0}, 11.5: {'Media recaudada': 170.625, 'Max sale': 222.0, 'Total ventas': 8.0}, 12.0: {'Media recaudada': 189.28571428571428, 'Max sale': 252.0, 'Total ventas': 14.0}}}, {'Nombre': 'Air Force 1 Toasty', 'Total gastado': 5220, 'Media': 130.5, 'Popular Size': {9.0: {'Media recaudada': 123.0, 'Max sale': 126.0, 'Total ventas': 3.0}, 9.5: {'Media recaudada': 141.5, 'Max sale': 196.0, 'Total ventas': 8.0}, 10.0: {'Media recaudada': 132.57142857142858, 'Max sale': 168.0, 'Total ventas': 7.0}, 10.5: {'Media recaudada': 120.2, 'Max sale': 124.0, 'Total ventas': 5.0}, 11.0: {'Media recaudada': 130.8, 'Max sale': 155.0, 'Total ventas': 5.0}, 11.5: {'Media recaudada': 122.0, 'Max sale': 122.0, 'Total ventas': 1.0}, 12.0: {'Media recaudada': 143.0, 'Max sale': 143.0, 'Total ventas': 1.0}}}, {'Nombre': 'Air Force 1 Mid Jewel NYC Cool Grey', 'Total gastado': 7507, 'Media': 75.07, 'Popular Size': {9.0: {'Media recaudada': 76.66666666666667, 'Max sale': 103.0, 'Total ventas': 9.0}, 9.5: {'Media recaudada': 65.4, 'Max sale': 103.0, 'Total ventas': 5.0}, 10.0: {'Media recaudada': 69.3, 'Max sale': 82.0, 'Total ventas': 10.0}, 10.5: {'Media recaudada': 75.83333333333333, 'Max sale': 106.0, 'Total ventas': 18.0}, 11.0: {'Media recaudada': 89.75, 'Max sale': 92.0, 'Total ventas': 4.0}, 11.5: {'Media recaudada': 75.57142857142857, 'Max sale': 81.0, 'Total ventas': 7.0}, 12.0: {'Media recaudada': 96.33333333333333, 'Max sale': 99.0, 'Total ventas': 3.0}}}, {'Nombre': 'BE-DO-WIN Hyper Royal', 'Total gastado': 7477, 'Media': 120.59677419354838, 'Popular Size': {9.0: {'Media recaudada': 101.33333333333333, 'Max sale': 124.0, 'Total ventas': 3.0}, 9.5: {'Media recaudada': 110.6, 'Max sale': 143.0, 'Total ventas': 5.0}, 10.0: {'Media recaudada': 118.83333333333333, 'Max sale': 181.0, 'Total ventas': 12.0}, 10.5: {'Media recaudada': 125.0, 'Max sale': 164.0, 'Total ventas': 7.0}, 11.0: {'Media recaudada': 126.875, 'Max sale': 188.0, 'Total ventas': 8.0}, 11.5: {'Media recaudada': 123.5, 'Max sale': 157.0, 'Total ventas': 2.0}, 12.0: {'Media recaudada': 123.25, 'Max sale': 176.0, 'Total ventas': 8.0}}}, {'Nombre': 'Air Force 1 x Alyx University Red and Black', 'Total gastado': 38518, 'Media': 385.18, 'Popular Size': {9.0: {'Media recaudada': 359.0, 'Max sale': 399.0, 'Total ventas': 17.0}, 9.5: {'Media recaudada': 374.3333333333333, 'Max sale': 392.0, 'Total ventas': 6.0}, 10.0: {'Media recaudada': 386.15384615384613, 'Max sale': 434.0, 'Total ventas': 13.0}, 10.5: {'Media recaudada': 396.44444444444446, 'Max sale': 533.0, 'Total ventas': 18.0}, 11.0: {'Media recaudada': 436.1111111111111, 'Max sale': 491.0, 'Total ventas': 9.0}, 11.5: 0, 12.0: {'Media recaudada': 558.0, 'Max sale': 576.0, 'Total ventas': 2.0}}}, {'Nombre': 'Air Force 1 x Alyx Black and University Red', 'Total gastado': 38518, 'Media': 385.18, 'Popular Size': {9.0: {'Media recaudada': 359.0, 'Max sale': 399.0, 'Total ventas': 17.0}, 9.5: {'Media recaudada': 374.3333333333333, 'Max sale': 392.0, 'Total ventas': 6.0}, 10.0: {'Media recaudada': 386.15384615384613, 'Max sale': 434.0, 'Total ventas': 13.0}, 10.5: {'Media recaudada': 396.44444444444446, 'Max sale': 533.0, 'Total ventas': 18.0}, 11.0: {'Media recaudada': 436.1111111111111, 'Max sale': 491.0, 'Total ventas': 9.0}, 11.5: 0, 12.0: {'Media recaudada': 558.0, 'Max sale': 576.0, 'Total ventas': 2.0}}}]
+_________________________________________________________ MONGODB
+[{'Nombre': 'Colección de ropa ACG Iceland', 'Precio': '499,99\u202f€'}, {'Nombre': 'ACG Mountain Fly GORE-TEX Dark Grey', 'Precio': '219,99\u202f€'}, {'Nombre': 'ACG Mountain Fly GORE-TEX Clay Green', 'Precio': '219,99\u202f€'}, {'Nombre': 'ACG Air Mowabb Limestone', 'Precio': '169,99\u202f€'}, {'Nombre': 'ACG Air Mowabb Trails End Brown', 'Precio': '169,99\u202f€'}, {'Nombre': 'Air Jordan 14 Winterized', 'Precio': '189,99\u202f€'}, {'Nombre': 'Air Max 95 Khaki and Total Orange', 'Precio': '179,99\u202f€'}, {'Nombre': 'ACG Air Mowabb Olive Grey', 'Precio': '169,99\u202f€'}, {'Nombre': 'Air Force 1 Next Nature Brown Kelp', 'Precio': '129,99\u202f€'}, {'Nombre': 'Air Force 1 Toasty', 'Precio': '129,99\u202f€'}, {'Nombre': 'Air Force 1 x Alyx University Red and Black', 'Precio': '399,99\u202f€'}, {'Nombre': 'Air More Uptempo para mujer Summit White', 'Precio': '159,99\u202f€'}, {'Nombre': 'Air Force 1 Mid Jewel NYC Cool Grey', 'Precio': '109,99\u202f€'}, {'Nombre': 'BE-DO-WIN Hyper Royal', 'Precio': '129,99\u202f€'}, {'Nombre': 'Air Force 1 x Alyx Black and University Red', 'Precio': '399,99\u202f€'}]
+_________________________________________________________ MONGODB PRECIOS
+['219,99', '219,99', '169,99', '169,99', '189,99', '179,99', '169,99', '129,99', '129,99', '399,99', '159,99', '109,99', '129,99', '399,99']
+_________________________________________________________ COMPARACION PRECIOS
+El precio de la zapatilla ACG Mountain Fly GORE-TEX Clay Green nike es 219,99 € y el precio medio de stockx es 214.01724137931035. 
+Los precios de las zapatillas mas cotizadas son: Talla: 9.0 | Precio medio de venta: 187.25 | Precio maximo de venta: 218.0 | Total de ventas: 4.0
+Talla: 9.5 | Precio medio de venta: 191.3846153846154 | Precio maximo de venta: 218.0 | Total de ventas: 13.0
+Talla: 10.0 | Precio medio de venta: 231.28571428571428 | Precio maximo de venta: 265.0 | Total de ventas: 7.0
+Talla: 10.5 | Precio medio de venta: 210.1 | Precio maximo de venta: 237.0 | Total de ventas: 10.0
+Talla: 11.0 | Precio medio de venta: 210.7 | Precio maximo de venta: 241.0 | Total de ventas: 10.0
+Talla: 11.5 | Precio medio de venta: 246.0 | Precio maximo de venta: 246.0 | Total de ventas: 1.0
+Talla: 12.0 | Precio medio de venta: 227.8 | Precio maximo de venta: 265.0 | Total de ventas: 5.0
+
+
+
+El precio de la zapatilla ACG Air Mowabb Trails End Brown nike es 169,99 € y el precio medio de stockx es 173.1764705882353. 
+Los precios de las zapatillas mas cotizadas son: Talla: 9.0 | Precio medio de venta: 181.5 | Precio maximo de venta: 208.0 | Total de ventas: 4.0
+Talla: 9.5 | Precio medio de venta: 148.0 | Precio maximo de venta: 159.0 | Total de ventas: 5.0
+Talla: 10.0 | Precio medio de venta: 152.25 | Precio maximo de venta: 168.0 | Total de ventas: 4.0
+Talla: 10.5 | Precio medio de venta: 151.75 | Precio maximo de venta: 166.0 | Total de ventas: 4.0
+Talla: 11.0 | Precio medio de venta: 172.0 | Precio maximo de venta: 172.0 | Total de ventas: 1.0
+Talla: 11.5 | Precio medio de venta: 191.0 | Precio maximo de venta: 197.0 | Total de ventas: 3.0
+Talla: 12.0 | Precio medio de venta: 212.6 | Precio maximo de venta: 315.0 | Total de ventas: 5.0
+
+
+
+El precio de la zapatilla Air Jordan 14 Winterized nike es 189,99 € y el precio medio de stockx es 194.97. 
+Los precios de las zapatillas mas cotizadas son: Talla: 9.0 | Precio medio de venta: 196.58333333333334 | Precio maximo de venta: 199.0 | Total de ventas: 12.0
+Talla: 9.5 | Precio medio de venta: 194.4 | Precio maximo de venta: 195.0 | Total de ventas: 5.0
+Talla: 10.0 | Precio medio de venta: 196.55555555555554 | Precio maximo de venta: 205.0 | Total de ventas: 9.0
+Talla: 10.5 | Precio medio de venta: 204.0 | Precio maximo de venta: 208.0 | Total de ventas: 8.0
+Talla: 11.0 | Precio medio de venta: 196.85714285714286 | Precio maximo de venta: 207.0 | Total de ventas: 14.0
+Talla: 11.5 | Precio medio de venta: 202.57142857142858 | Precio maximo de venta: 205.0 | Total de ventas: 7.0
+Talla: 12.0 | Precio medio de venta: 199.53846153846155 | Precio maximo de venta: 210.0 | Total de ventas: 13.0
+
+
+
+El precio de la zapatilla ACG Air Mowabb Limestone nike es 169,99 € y el precio medio de stockx es 171.1978021978022. 
+Los precios de las zapatillas mas cotizadas son: Talla: 9.0 | Precio medio de venta: 159.16666666666666 | Precio maximo de venta: 170.0 | Total de ventas: 6.0
+Talla: 9.5 | Precio medio de venta: 165.125 | Precio maximo de venta: 191.0 | Total de ventas: 8.0
+Talla: 10.0 | Precio medio de venta: 165.125 | Precio maximo de venta: 201.0 | Total de ventas: 8.0
+Talla: 10.5 | Precio medio de venta: 169.41666666666666 | Precio maximo de venta: 215.0 | Total de ventas: 12.0
+Talla: 11.0 | Precio medio de venta: 174.21052631578948 | Precio maximo de venta: 244.0 | Total de ventas: 19.0
+Talla: 11.5 | Precio medio de venta: 171.4 | Precio maximo de venta: 188.0 | Total de ventas: 5.0
+Talla: 12.0 | Precio medio de venta: 178.1 | Precio maximo de venta: 235.0 | Total de ventas: 10.0
+
+
+
+El precio de la zapatilla ACG Air Mowabb Olive Grey nike es 169,99 € y el precio medio de stockx es 199.46875. 
+Los precios de las zapatillas mas cotizadas son: Talla: 9.0 | Precio medio de venta: 168.66666666666666 | Precio maximo de venta: 188.0 | Total de ventas: 3.0
+Talla: 9.5 | Precio medio de venta: 190.0 | Precio maximo de venta: 213.0 | Total de ventas: 8.0
+Talla: 10.0 | Precio medio de venta: 185.0 | Precio maximo de venta: 208.0 | Total de ventas: 7.0
+Talla: 10.5 | Precio medio de venta: 185.28571428571428 | Precio maximo de venta: 209.0 | Total de ventas: 7.0
+Talla: 11.0 | Precio medio de venta: 192.6153846153846 | Precio maximo de venta: 211.0 | Total de ventas: 13.0
+Talla: 11.5 | Precio medio de venta: 203.66666666666666 | Precio maximo de venta: 214.0 | Total de ventas: 3.0
+Talla: 12.0 | Precio medio de venta: 224.5 | Precio maximo de venta: 260.0 | Total de ventas: 12.0
+
+
+
+El precio de la zapatilla ACG Mountain Fly GORE-TEX Dark Grey nike es 219,99 € y el precio medio de stockx es 223.55. 
+Los precios de las zapatillas mas cotizadas son: Talla: 9.0 | Precio medio de venta: 204.25 | Precio maximo de venta: 237.0 | Total de ventas: 8.0
+Talla: 9.5 | Precio medio de venta: 209.0 | Precio maximo de venta: 261.0 | Total de ventas: 11.0
+Talla: 10.0 | Precio medio de venta: 221.75 | Precio maximo de venta: 312.0 | Total de ventas: 12.0
+Talla: 10.5 | Precio medio de venta: 237.33333333333334 | Precio maximo de venta: 360.0 | Total de ventas: 15.0
+Talla: 11.0 | Precio medio de venta: 232.55555555555554 | Precio maximo de venta: 308.0 | Total de ventas: 9.0
+Talla: 11.5 | Precio medio de venta: 216.8 | Precio maximo de venta: 256.0 | Total de ventas: 5.0
+Talla: 12.0 | Precio medio de venta: 233.2 | Precio maximo de venta: 302.0 | Total de ventas: 10.0
+
+
+
+El precio de la zapatilla Air Max 95 Khaki and Total Orange nike es 179,99 € y el precio medio de stockx es 178.43. 
+Los precios de las zapatillas mas cotizadas son: Talla: 9.0 | Precio medio de venta: 178.5 | Precio maximo de venta: 220.0 | Total de ventas: 6.0
+Talla: 9.5 | Precio medio de venta: 174.64285714285714 | Precio maximo de venta: 215.0 | Total de ventas: 14.0
+Talla: 10.0 | Precio medio de venta: 170.5 | Precio maximo de venta: 251.0 | Total de ventas: 6.0
+Talla: 10.5 | Precio medio de venta: 177.41666666666666 | Precio maximo de venta: 245.0 | Total de ventas: 12.0
+Talla: 11.0 | Precio medio de venta: 173.91666666666666 | Precio maximo de venta: 233.0 | Total de ventas: 12.0
+Talla: 11.5 | Precio medio de venta: 170.625 | Precio maximo de venta: 222.0 | Total de ventas: 8.0
+Talla: 12.0 | Precio medio de venta: 189.28571428571428 | Precio maximo de venta: 252.0 | Total de ventas: 14.0
+
+
+
+El precio de la zapatilla Air Force 1 Toasty nike es 129,99 € y el precio medio de stockx es 130.5. 
+Los precios de las zapatillas mas cotizadas son: Talla: 9.0 | Precio medio de venta: 123.0 | Precio maximo de venta: 126.0 | Total de ventas: 3.0
+Talla: 9.5 | Precio medio de venta: 141.5 | Precio maximo de venta: 196.0 | Total de ventas: 8.0
+Talla: 10.0 | Precio medio de venta: 132.57142857142858 | Precio maximo de venta: 168.0 | Total de ventas: 7.0
+Talla: 10.5 | Precio medio de venta: 120.2 | Precio maximo de venta: 124.0 | Total de ventas: 5.0
+Talla: 11.0 | Precio medio de venta: 130.8 | Precio maximo de venta: 155.0 | Total de ventas: 5.0
+Talla: 11.5 | Precio medio de venta: 122.0 | Precio maximo de venta: 122.0 | Total de ventas: 1.0
+Talla: 12.0 | Precio medio de venta: 143.0 | Precio maximo de venta: 143.0 | Total de ventas: 1.0
+
+
+
+El precio de la zapatilla Air Force 1 Mid Jewel NYC Cool Grey nike es 109,99 € y el precio medio de stockx es 75.07. 
+Los precios de las zapatillas mas cotizadas son: Talla: 9.0 | Precio medio de venta: 76.66666666666667 | Precio maximo de venta: 103.0 | Total de ventas: 9.0
+Talla: 9.5 | Precio medio de venta: 65.4 | Precio maximo de venta: 103.0 | Total de ventas: 5.0
+Talla: 10.0 | Precio medio de venta: 69.3 | Precio maximo de venta: 82.0 | Total de ventas: 10.0
+Talla: 10.5 | Precio medio de venta: 75.83333333333333 | Precio maximo de venta: 106.0 | Total de ventas: 18.0
+Talla: 11.0 | Precio medio de venta: 89.75 | Precio maximo de venta: 92.0 | Total de ventas: 4.0
+Talla: 11.5 | Precio medio de venta: 75.57142857142857 | Precio maximo de venta: 81.0 | Total de ventas: 7.0
+Talla: 12.0 | Precio medio de venta: 96.33333333333333 | Precio maximo de venta: 99.0 | Total de ventas: 3.0
+
+
+
+El precio de la zapatilla BE-DO-WIN Hyper Royal nike es 129,99 € y el precio medio de stockx es 120.59677419354838. 
+Los precios de las zapatillas mas cotizadas son: Talla: 9.0 | Precio medio de venta: 101.33333333333333 | Precio maximo de venta: 124.0 | Total de ventas: 3.0
+Talla: 9.5 | Precio medio de venta: 110.6 | Precio maximo de venta: 143.0 | Total de ventas: 5.0
+Talla: 10.0 | Precio medio de venta: 118.83333333333333 | Precio maximo de venta: 181.0 | Total de ventas: 12.0
+Talla: 10.5 | Precio medio de venta: 125.0 | Precio maximo de venta: 164.0 | Total de ventas: 7.0
+Talla: 11.0 | Precio medio de venta: 126.875 | Precio maximo de venta: 188.0 | Total de ventas: 8.0
+Talla: 11.5 | Precio medio de venta: 123.5 | Precio maximo de venta: 157.0 | Total de ventas: 2.0
+Talla: 12.0 | Precio medio de venta: 123.25 | Precio maximo de venta: 176.0 | Total de ventas: 8.0
+
+
+
+El precio de la zapatilla Air Force 1 x Alyx University Red and Black nike es 399,99 € y el precio medio de stockx es 385.18. 
+Los precios de las zapatillas mas cotizadas son: Talla: 9.0 | Precio medio de venta: 359.0 | Precio maximo de venta: 399.0 | Total de ventas: 17.0
+Talla: 9.5 | Precio medio de venta: 374.3333333333333 | Precio maximo de venta: 392.0 | Total de ventas: 6.0
+Talla: 10.0 | Precio medio de venta: 386.15384615384613 | Precio maximo de venta: 434.0 | Total de ventas: 13.0
+Talla: 10.5 | Precio medio de venta: 396.44444444444446 | Precio maximo de venta: 533.0 | Total de ventas: 18.0
+Talla: 11.0 | Precio medio de venta: 436.1111111111111 | Precio maximo de venta: 491.0 | Total de ventas: 9.0
+Talla: 12.0 | Precio medio de venta: 558.0 | Precio maximo de venta: 576.0 | Total de ventas: 2.0
+
+
+
+El precio de la zapatilla Air Force 1 x Alyx Black and University Red nike es 399,99 € y el precio medio de stockx es 385.18. 
+Los precios de las zapatillas mas cotizadas son: Talla: 9.0 | Precio medio de venta: 359.0 | Precio maximo de venta: 399.0 | Total de ventas: 17.0
+Talla: 9.5 | Precio medio de venta: 374.3333333333333 | Precio maximo de venta: 392.0 | Total de ventas: 6.0
+Talla: 10.0 | Precio medio de venta: 386.15384615384613 | Precio maximo de venta: 434.0 | Total de ventas: 13.0
+Talla: 10.5 | Precio medio de venta: 396.44444444444446 | Precio maximo de venta: 533.0 | Total de ventas: 18.0
+Talla: 11.0 | Precio medio de venta: 436.1111111111111 | Precio maximo de venta: 491.0 | Total de ventas: 9.0
+Talla: 12.0 | Precio medio de venta: 558.0 | Precio maximo de venta: 576.0 | Total de ventas: 2.0
+
+
+
