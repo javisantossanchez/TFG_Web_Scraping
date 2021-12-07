@@ -212,16 +212,16 @@ def main():
 if "__main__" == __name__:
     lista_stockx = []
     lista_nombres_disponibles = []
-    #main()
+    main()
     
-    driver = inicializar_buscador()
+    '''driver = inicializar_buscador()
     
     
     entrypoint = 'https://stockx.com/search?s=Air Max 95 Khaki and Total Orange'
     
     driver.get(entrypoint) 
     time.sleep(6) 
-    aceptar_cookies(driver)
+    aceptar_cookies(driver)'''
     
 
 

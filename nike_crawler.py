@@ -294,7 +294,7 @@ def capturar_producto(driver,nombre_de_producto):
 
     driver.save_screenshot("mongodb/database/imagenes/"+nombre_de_producto+".png")
     print("-----Guardando la captura de {0}".format(nombre_de_producto))
-    im = Image.open("mongodb/database/imagenes/"+nombre_de_producto+".png") # uses PIL library to open image in memory
+    im = Image.open("mongodb/database/imagenes/"+nombre_de_producto.strip()+".png") # uses PIL library to open image in memory
     im = im.crop((left, 0 + (dir_top_size['height'])*3, right, bottom)) # defines crop points
     im.save("mongodb/database/imagenes/"+nombre_de_producto+".png") # saves new cropped image
     driver.execute_script("document.body.style.MozTransform='scale(1)';")
