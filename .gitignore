@@ -6,3 +6,8 @@ geckodriver
 geckodriver.log
 cookies.pkl
 prueba.py
+nodejs/imagenes/*
+nodejs/css/*
+nodejs/index.js
+nodejs/js/*
+
