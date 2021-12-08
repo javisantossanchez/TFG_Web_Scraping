@@ -21,7 +21,8 @@ app.get('/zapasnike', (req, res) => {
     MongoClient.connect(url, function(err, db) {
     if (err) throw err;
     var dbo = db.db("nike");
-    dbo.collection("zapas_nike").find({}).toArray(function(err, result) {
+    var query = {"State": "Comprar"}
+    dbo.collection("zapas_nike").find(query).toArray(function(err, result) {
         if (err) throw err;
         console.log(result);
         res.send(result)
@@ -38,8 +39,7 @@ app.get('/zapasstockx', (req, res) => {
     MongoClient.connect(url, function(err, db) {
     if (err) throw err;
     var dbo = db.db("nike");
-    var query = {"Nombre": $all}
-    dbo.collection("zapas_stockx").find(query).toArray(function(err, result) {
+    dbo.collection("zapas_stockx").find({}).toArray(function(err, result) {
         if (err) throw err;
         console.log(result);
         res.send(result)

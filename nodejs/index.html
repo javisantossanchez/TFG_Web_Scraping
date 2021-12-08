@@ -26,8 +26,7 @@
         <div class="navbar navbar-dark bg-dark shadow-sm">
           <div class="container">
             <a href="#" class="navbar-brand d-flex align-items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-              <strong>Album</strong>
+              <strong>Nike Sneakers</strong>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation" onclick="showhide()">
               <span class="navbar-toggler-icon"></span>
@@ -36,8 +35,28 @@
         </div>
       </header>
 
-      <img src="/imagenes/Air Force 1 LBJ.png" alt="My_Logo">
+      <main>
+      <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Nike Sneakers</h1>
+            <p class="lead text-muted">Actualmente puedes comprobar qué zapatillas de edición limitada se encuentran a la venta en Nike Sneakers. Puedes también comprobar el valor de éstas en stockx.
+            </p>
+            <p>
+              <a href="#" onclick="nikeclick();"class="btn btn-primary my-2">Nike Shoes</a>
+              <a href="#" onclick="stockxclick();" class="btn btn-secondary my-2">Stockx Shoes</a>
+            </p>
+          </div>
+        </div>
+      </section>
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row row-cols-1">
 
+          </div>
+        </div>
+      </div>
+    </main>
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
@@ -51,13 +70,37 @@
     $(document).ready(function () {
     $.getJSON("/zapasnike", function(data) {
       console.log(data);
-      //console.log(data[0]["Nombre"]);
+      
       for(zapatilla of data){
         console.log(zapatilla["Nombre"]);
-        myFunc(zapatilla);
+        createShoes(zapatilla);
       }
 });
 });
+    function stockxclick(){
+      $.getJSON("/zapasstockx", function(data) {
+      console.log(data);
+      var body = document.getElementsByClassName("row row-cols-1")[0];
+      body.innerHTML = "";
+      for(zapatilla of data){
+        console.log(zapatilla["Nombre"]);
+        createShoes(zapatilla);
+      }
+});
+    }
+
+
+    function nikeclick(){
+      $.getJSON("/zapasnike", function(data) {
+      console.log(data);
+      var body = document.getElementsByClassName("row row-cols-1")[0];
+      body.innerHTML = "";
+      for(zapatilla of data){
+        console.log(zapatilla["Nombre"]);
+        createShoes(zapatilla);
+      }
+});
+    }
     function showhide(){
         var state = document.getElementById("navbarHeader");
         if(state.className != "bg-dark collapse show"){
@@ -69,33 +112,52 @@
     }
 
 
-    function myFunc(shoe) {
-    var body = document.body;
+    function createShoes(shoe) {
+    var body = document.getElementsByClassName("row row-cols-1")[0];
     var node = document.createElement("DIV");
-    var header = document.createElement("h1");
-    header.append(zapatilla["Nombre"]);
+    node.className = "col"
+    body.appendChild(node);
+
+    var card_shadow = document.createElement("DIV");
+    card_shadow.className="card shadow-sm";
+    node.appendChild(card_shadow);
+
+    var header = document.createElement("p");
+    
+
     if(zapatilla["State"] != "Comprar"){
-      node.appendChild(header);
+      card_shadow.appendChild(header);
       
       var textnode = document.createTextNode(zapatilla["State"]);     
-      node.appendChild(textnode);
+      card_shadow.appendChild(textnode);
     }
     else{
-      node.appendChild(header);
       
-      var textnode = document.createTextNode(zapatilla["State"]);
-      node.appendChild(textnode);
+      //var textnode = document.createTextNode(zapatilla["State"]);
+      //card_shadow.appendChild(textnode);
       var img = document.createElement("img");
       var url = zapatilla["Imagen"].split("/");
       var nombre = url[url.length - 1];
-      //nombre = "'"+nombre+"'";
-      console.log(nombre);
-      url[url.length - 1] = nombre;
       url = "/imagenes/"+nombre;
       console.log(url);
       img.src = url;
-      node.appendChild(img); 
-    }                
+      //img.className = "bd-placeholder-img card-img-top";
+      img.style = "height: 100%;object-fit: contain;"
+      card_shadow.appendChild(img); 
+      var cardbody = document.createElement("DIV");
+      cardbody.className = "card-body";
+      header.className = "card-text";
+      card_shadow.appendChild(cardbody);
+      cardbody.appendChild(header);
+      header.style = "text-align:center";
+      header.append("Precio: "+zapatilla["Precio"]);
+      header.innerHTML += "<br>";
+      header.append("Url: "+zapatilla["url"]);
+      header.innerHTML += "<br>";
+      header.append("Tallas: "+zapatilla["Tallas"]);
+    } 
+    
+    
     body.appendChild(node);     
   }
 </script>
