@@ -15,36 +15,38 @@ def obtain_availables_shoes_from_mongo(myclient):
     zapatillasdisponibles = [x for x in zapatillasdisponibles if "Colección" not in x["Nombre"]]
     lista_nombres_disponibles = [x["Nombre"] for x in zapatillasdisponibles if "Colección" not in x["Nombre"]]
 
-    return zapatillasdisponibles,lista_nombres_disponibles
+    return zapatillasdisponibles
     
 def zapatillasdisponibles(update,context):
     """Lista las zapatillas de Nike disponibles."""
+
+    #Definimos la conexión con la BD.
     myclient = pymongo.MongoClient(
             'mongodb://mongo:27017/',
             username='root',
             password='example')
-    zapatillas_disponibles,lista_nombres_disponibles = obtain_availables_shoes_from_mongo(myclient)
-    logger.warning(zapatillas_disponibles)
-
+    #Llamamos a la BD
+    zapatillas_disponibles = obtain_availables_shoes_from_mongo(myclient)
     lista_productos_disponibles = ""
+    #Creamos el String que respondera al usuario
     for producto in zapatillas_disponibles:
         lista_productos_disponibles += "| "+producto["Nombre"]+" | Precio: "+producto["Precio"]+"| \n | Tallas: "
         for tallas_disponibles in producto["Tallas"]:
             lista_productos_disponibles += tallas_disponibles +"/"
         lista_productos_disponibles += tallas_disponibles +" |\n"
-
-    logger.warning(lista_productos_disponibles)
     update.message.reply_text(lista_productos_disponibles)
 
 def zapatillasnodisponibles(update,context):
     """Lista las zapatillas de Nike no disponibles."""
+    #Definimos la conexion a la BD
     myclient = pymongo.MongoClient(
             'mongodb://mongo:27017/',
             username='root',
             password='example')
     mydb = myclient["nike"]
     mycol = mydb["zapas_nike"]
-
+    #Pedimos todas aquellas zapatillas que no estan disponibles
+    #Esperamos obtener el Nombre, Precio y State, que son las columnas de la BD
     zapatillasnodisponibles = mycol.find({"State": {"$ne" : "Comprar"}},{"_id":0,"Nombre":1,"Precio":2,"State":3})
 
     lista_productos_disponibles = ""
@@ -54,7 +56,7 @@ def zapatillasnodisponibles(update,context):
 
 def send_pdf(update,context):
     """Envia el pdf generado a través del bot."""
-    context.bot.send_document(chat_id=update.message.chat.id, document=open('primerpdf.pdf', 'rb'), filename="zapasguapasloco.pdf")
+    context.bot.send_document(chat_id=update.message.chat.id, document=open('primerpdf.pdf', 'rb'), filename="NikeScraperLastSearch.pdf")
 
 def tallasdisponibles(update, context):
     """Send a message when the command /start is issued."""
@@ -67,11 +69,10 @@ def tallasdisponibles(update, context):
             username='root',
             password='example')
 
-    zapatillas_disponibles,lista_nombres_disponibles = obtain_availables_shoes_from_mongo(myclient)
+    zapatillas_disponibles = obtain_availables_shoes_from_mongo(myclient)
     for producto in zapatillas_disponibles:
         if producto["Tallas"][0] == "Actualmente no quedan tallas":
             zapatillas_disponibles.remove(producto)
-
     for producto in zapatillas_disponibles:
         producto["talla-encontrada"] = ""
         for talla in producto["Tallas"]:
@@ -79,7 +80,6 @@ def tallasdisponibles(update, context):
                 if talla_buscada == talla:
                     producto["talla-encontrada"] += talla_buscada +"/"
         tallas_encontradas.append(producto)
-    print("Tallas encontradas: ",tallas_encontradas)  
     mensaje_respuesta = "Hemos encontrado estas zapatillas con la/s talla/s buscada!: \n"
     update.message.reply_text(mensaje_respuesta)
     count = 0
@@ -88,7 +88,6 @@ def tallasdisponibles(update, context):
             count += 1
             mensaje_respuesta = "Talla/s :"+zapatilla_con_talla["talla-encontrada"] +"\n"+zapatilla_con_talla["Nombre"] +"\n"+zapatilla_con_talla["url"] + "\n"
             update.message.reply_text(mensaje_respuesta)
-    print("En total {0} productos encontrados".format(count))
     if count == 0:
         update.message.reply_text("Actualmente no quedan zapatillas con la talla/s {0}".format(tallas_buscadas))   
 
@@ -105,6 +104,7 @@ def echo(update, context):
 def error(update, context):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, context.error)
+
 
 def main():
     """Start the bot."""
