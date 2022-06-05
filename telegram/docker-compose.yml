@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+  telegrambotcontainer:
+    container_name: telegrambot
+    image: telegrambotcontainer
+    restart: always
+    networks:
+      - mongodb_bot-network
+
+networks:
+  mongodb_bot-network:
+    external: true
