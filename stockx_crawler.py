@@ -69,13 +69,6 @@ def inicializar_buscador():
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_argument("disable-infobars")
 
-    '''helperSpoofer = Spoofer()
-
-    options.add_argument('user-agent={}'.format(helperSpoofer.userAgent))
-    options.add_argument('--proxy-server=%s' % helperSpoofer.ip)
-    print(helperSpoofer.userAgent,helperSpoofer.ip)
-
-    print("------options",options.__str__)'''
 
     options.add_argument('user-agent=Mozilla/5.0 (X11; Linux x86_64; rv:28.0) Gecko/20100101  Firefox/28.0')
     driver = webdriver.Chrome(options=options,service=s)
@@ -124,8 +117,6 @@ def get_popular_size_info(informacion_ventas):
     for size in most_popular_sizes:
         size_info.update({size:0})
 
-
-    #print(informacion_ventas)
     for venta in informacion_ventas:
         if float(venta["Size"]) in most_popular_sizes:
             index = most_popular_sizes.index(float(venta["Size"]))

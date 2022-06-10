@@ -84,7 +84,7 @@
       body.innerHTML = "";
       for(zapatilla of data){
         console.log(zapatilla["Nombre"]);
-        createShoes(zapatilla);
+        createShoesStockX(zapatilla);
       }
 });
     }
@@ -110,8 +110,6 @@
             state.className = "collapse bg-dark";
         }
     }
-
-
     function createShoes(shoe) {
     var body = document.getElementsByClassName("row row-cols-1")[0];
     var node = document.createElement("DIV");
@@ -160,6 +158,56 @@
     
     body.appendChild(node);     
   }
+
+  function createShoesStockX(shoe) {
+    var body = document.getElementsByClassName("row row-cols-1")[0];
+    var node = document.createElement("DIV");
+    node.className = "col"
+    body.appendChild(node);
+
+    var card_shadow = document.createElement("DIV");
+    card_shadow.className="card shadow-sm";
+    node.appendChild(card_shadow);
+
+    var header = document.createElement("p");
+    
+    var cardbody = document.createElement("DIV");
+    cardbody.className = "card-body";
+    header.className = "card-text";
+    card_shadow.appendChild(cardbody);
+    cardbody.appendChild(header);
+    header.style = "text-align:center";
+    header.append("Nombre: "+zapatilla["Nombre"]);
+    header.innerHTML += "<br>";
+    header.append("Total Gastado en esta zapatilla en Stockx: "+zapatilla["Total gastado"]);
+    header.innerHTML += "<br>";
+    console.log(zapatilla);
+
+    //console.log(Object.keys(zapatilla["Popular Size"]));
+    //console.log(zapatilla["Popular Size"]["9.0"]);
+
+    for(talla_actual of Object.keys(zapatilla["Popular Size"])){
+      header.innerHTML += "<br>";
+      header.append("Talla: "+talla_actual);
+      header.innerHTML += "<br>";
+      header.append("Media Recaudada: "+zapatilla["Popular Size"][talla_actual]["Media recaudada"]);
+      header.innerHTML += "<br>";
+      header.append("Venta Maxima: "+zapatilla["Popular Size"][talla_actual]["Max sale"]);
+      header.innerHTML += "<br>";
+      header.append("Total de Ventas: "+zapatilla["Popular Size"][talla_actual]["Total ventas"]);
+      header.innerHTML += "<br>";
+    }
+    
+    
+    
+    
+    body.appendChild(node);     
+  }
+
+
+
+
+
 </script>
 </body>
 </html>
