@@ -101,6 +101,7 @@ def obtain_sales_history(driver):
         aux = {}
         aux.update({"Error":"Error"})
         informacion_ventas.append(aux)    
+        #que
 
     return informacion_ventas
 
