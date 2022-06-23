@@ -1,3 +1,7 @@
+
+
+
+
 from fpdf import FPDF
 from selenium import webdriver 
 from selenium.webdriver.common.by import By
@@ -17,32 +21,34 @@ class PDF(FPDF):
     def __init__(self,productos_disponibles):
         self.pdf = FPDF()
         self.formatPDF()
-        for producto in productos_disponibles:
-            self.pdf.add_page()
-            self.pdf.set_font("Arial", 'B', size=18)
-            self.pdf.set_text_color(0, 51, 69)
-            self.pdf.cell(200, 7, txt=producto["Nombre"], ln=1, align="L")
-            self.pdf.ln(10)
-            self.pdf.set_font("Arial", 'B', size=10)
-            self.pdf.set_text_color(0, 51, 69)
+        try:
+            for producto in productos_disponibles:
+                self.pdf.add_page()
+                self.pdf.set_font("DejaVu", '', size=18)
+                self.pdf.set_text_color(0, 51, 69)
+                self.pdf.cell(200, 7, txt=producto["Nombre"], ln=1, align="L")
+                self.pdf.ln(10)
+                self.pdf.set_font("DejaVu", '', size=10)
+                self.pdf.set_text_color(0, 51, 69)
 
-            if "precio" in producto:            
-                el_precio_del_producto_parseado = producto["Precio"].replace(u"\u202f€","")         
-                el_precio_del_producto_parseado = el_precio_del_producto_parseado + chr(128) #SIMBOLO DEL EURO EN ASCII
-                self.pdf.cell(200, 4, txt="Precio "+el_precio_del_producto_parseado, ln=1, align="L")
+                if "precio" in producto:            
+                    el_precio_del_producto_parseado = producto["Precio"].replace(u"\u202f€","")         
+                    el_precio_del_producto_parseado = el_precio_del_producto_parseado + chr(128) #SIMBOLO DEL EURO EN ASCII
+                    self.pdf.cell(200, 4, txt="Precio "+el_precio_del_producto_parseado, ln=1, align="L")
+                    self.pdf.ln(5)
+                            
+                cover = Image.open("mongodb/database/imagenes/"+producto["Nombre"]+".png")
+                width, height = cover.size
+                producto["Imagen"] = "/home/database/imagenes/"+producto["Nombre"]+".png"
+
+                self.pdf.cell(200, 2, txt="Url: "+producto["url"], ln=1, align="L")
                 self.pdf.ln(5)
-                          
-            cover = Image.open("mongodb/database/imagenes/"+producto["Nombre"]+".png")
-            width, height = cover.size
-            producto["Imagen"] = "/home/database/imagenes/"+producto["Nombre"]+".png"
-
-            self.pdf.cell(200, 2, txt="Url: "+producto["url"], ln=1, align="L")
-            self.pdf.ln(5)
-            self.pdf.set_text_color(0, 0, 0)
-            self.pdf.set_font("Arial", size=13)
-            self.pdf.image("mongodb/database/imagenes/"+producto["Nombre"]+".png", w = width/(3.5), h=height/(3.5))
-            self.pdf.footer()
-
+                self.pdf.set_text_color(0, 0, 0)
+                self.pdf.set_font("DejaVu", size=13)
+                self.pdf.image("mongodb/database/imagenes/"+producto["Nombre"]+".png", w = width/(3.5), h=height/(3.5))
+                self.pdf.footer()
+        except OSError as e:
+           print(e) 
         self.pdf.output("primerpdf.pdf")
         print("IMPRIMIENDO PDF")
 
@@ -59,7 +65,7 @@ class PDF(FPDF):
         self.set_text_color(150, 150, 150)
         # Thickness of frame (1 mm)
         # Title
-        self.cell(w, 10, title, ln=1, align='C')
+        self.cell(w, 10, text=title, ln=1, align='C')
         # Line break
         self.ln(10)
 
@@ -77,7 +83,8 @@ class PDF(FPDF):
     def formatPDF(self):
         self.pdf.add_page()
         self.pdf.footer()
-        self.pdf.set_font("Arial", 'B', size=28)
+        self.pdf.add_font('DejaVu', '', 'DejaVuSansCondensed.ttf', uni=True)
+        self.pdf.set_font("DejaVu", '', size=28)
         self.pdf.set_text_color(0, 51, 69)
         self.pdf.set_y(80)
         self.pdf.cell(200, 20, txt="Zapatillas", ln=8, align="C")
@@ -419,6 +426,7 @@ def obtener_tallas_y_precio(driver,producto):
     precio_zapatillas = WebDriverWait(driver, 4).until(EC.presence_of_element_located((By.XPATH, "//div[@data-qa = 'price']")))
     #print("PRECIO",precio_zapatillas.text)
     producto["Precio"] = precio_zapatillas.text.strip()
+    producto["Imagen"] = "/home/database/imagenes/"+producto["Nombre"]+".png"
     try:
         todas_las_tallas = WebDriverWait(driver, 4).until(EC.presence_of_all_elements_located((By.XPATH, "//ul[contains(@class,'size-layout')]//li[@data-qa = 'size-available']")))
         lista_tallas = []
@@ -471,9 +479,12 @@ if "__main__" == __name__:
         executor.map(concurrent_search, productos_disponibles)
     
     print("\n----------------------------------------------------------------------------------PRODUCTOS DISPONIBLES:----------------------------------------------------------------------------------\n",productos_disponibles)
+    generarjson(nike.todos_los_productos,productos_disponibles)
+    
+    
     pdf = PDF(productos_disponibles)
 
-    generarjson(nike.todos_los_productos,productos_disponibles)
+    
     #nike.driver.quit()
     
     #main()

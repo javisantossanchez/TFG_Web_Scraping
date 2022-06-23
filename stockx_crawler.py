@@ -1,4 +1,5 @@
 from random import random
+import numpy as np
 from lxml.html import tostring
 from selenium.webdriver.chrome.service import Service
 from selenium import webdriver 
@@ -13,6 +14,8 @@ import json
 from concurrent import futures
 import pymongo
 from fake_useragent import UserAgent
+
+import undetected_chromedriver as uc
 
 class Spoofer(object):
 
@@ -34,62 +37,70 @@ def aceptar_cookies(driver):
     try:
         #accept_cookies =  WebDriverWait(driver, 4).until(EC.presence_of_element_located((By.XPATH, "//footer[contains(@class,'chakra-modal')]//button")))
         #accept_cookies.click()
-        accept_cookies =  WebDriverWait(driver, 4).until(EC.presence_of_element_located((By.XPATH, "//section[@role = 'dialog']/button[@aria-label = 'Close']")))
+        location = WebDriverWait(driver, 4).until(EC.presence_of_element_located((By.XPATH, "//section[@role = 'dialog']/button[@aria-label = 'Close']")))
+        accept_cookies =  WebDriverWait(driver, 4).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@id, 'onetrust-banner')]//button[contains(@class,'onetrust-close')]")))
         accept_cookies.click()
+        time.sleep(2)
+        location.click()
     except TimeoutException:
         driver.refresh()
         time.sleep(4)
         #accept_cookies =  WebDriverWait(driver, 4).until(EC.presence_of_element_located((By.XPATH, "//footer[contains(@class,'chakra-modal')]//button")))
         #accept_cookies.click()
-        accept_cookies =  WebDriverWait(driver, 4).until(EC.presence_of_element_located((By.XPATH, "//section[@role = 'dialog']/button[@aria-label = 'Close']")))
+        location = WebDriverWait(driver, 4).until(EC.presence_of_element_located((By.XPATH, "//section[@role = 'dialog']/button[@aria-label = 'Close']")))
+        accept_cookies =  WebDriverWait(driver, 4).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@id, 'onetrust-banner')]//button[contains(@class,'onetrust-close')]")))
         accept_cookies.click()
+        time.sleep(2)
+        location.click()
 
 def inicializar_buscador():
+    
     s = Service('/home/santos/Escritorio/chromedriver_linux64/chromedriver')
     options = webdriver.ChromeOptions()
+    #options.add_argument("--disable-gpu")
+    #options.add_argument('--no-sandbox')
 
-    '''
-    options.add_argument("--no-sandbox")
-    options.add_argument("--start-maximized")
-    options.add_argument("--disable-gpu")
-    options.add_argument("--disable-blink-features=AutomationControlled")
-    options.add_argument("--enable-javascript")
-    '''
-
-    options.add_argument("--disable-gpu")
-    options.add_argument('--no-sandbox')
     options.add_argument('--start-maximized')
-    #options.add_argument('--start-fullscreen')
-    options.add_argument('--single-process')
-    options.add_argument('--disable-dev-shm-usage')
+    
+    #options.add_argument('--single-process')
+    #options.add_argument('--disable-dev-shm-usage')
     options.add_argument("--incognito")
+    options.add_argument("--disable-blink-features")
     options.add_argument('--disable-blink-features=AutomationControlled')
-    options.add_experimental_option('useAutomationExtension', False)
+    #options.add_experimental_option('useAutomationExtension', False)
     options.add_argument("--enable-javascript")
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_argument("disable-infobars")
+    
 
-
-    options.add_argument('user-agent=Mozilla/5.0 (X11; Linux x86_64; rv:28.0) Gecko/20100101  Firefox/28.0')
+    #options.add_argument('User-Agent": "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3')
     driver = webdriver.Chrome(options=options,service=s)
+    #driver.delete_all_cookies()
+  
     return driver
 
 def obtain_sales_history(driver):
     all_sales_button = WebDriverWait(driver, 4).until(EC.presence_of_all_elements_located((By.XPATH, "//div[contains(@data-component,'MarketActivityDrawer')]//button")))
     el_boton = [x for x in all_sales_button if x.text == 'View Sales'][0]
     el_boton.click()
-    time.sleep(4)
-    todas_las_ventas = WebDriverWait(driver, 4).until(EC.presence_of_all_elements_located((By.XPATH, "//tbody[@role = 'rowgroup']//tr")))
-    columnas_ventas = WebDriverWait(driver, 4).until(EC.presence_of_element_located((By.XPATH, "//table[@role = 'table']//thead")))
-    columnas_ventas = columnas_ventas.text.split("\n")
+    time.sleep(10)
+    try:
+        todas_las_ventas = WebDriverWait(driver, 4).until(EC.presence_of_all_elements_located((By.XPATH, "//tbody[@role = 'rowgroup']//tr")))
+        columnas_ventas = WebDriverWait(driver, 4).until(EC.presence_of_element_located((By.XPATH, "//table[@role = 'table']//thead")))
+        columnas_ventas = columnas_ventas.text.split("\n")
 
-    informacion_ventas = []
-    for venta in todas_las_ventas:
-        la_venta = venta.text.split("\n")
+        informacion_ventas = []
+        for venta in todas_las_ventas:
+            la_venta = venta.text.split("\n")
+            aux = {}
+            for indice,datos in enumerate(la_venta):
+                aux.update({columnas_ventas[indice]:datos})
+            informacion_ventas.append(aux)    
+    except TimeoutException:
+        informacion_ventas = []
         aux = {}
-        for indice,datos in enumerate(la_venta):
-            aux.update({columnas_ventas[indice]:datos})
-        informacion_ventas.append(aux)
+        aux.update({"Error":"Error"})
+        informacion_ventas.append(aux)    
 
     return informacion_ventas
 
@@ -118,7 +129,9 @@ def get_popular_size_info(informacion_ventas):
         size_info.update({size:0})
 
     for venta in informacion_ventas:
-        if float(venta["Size"]) in most_popular_sizes:
+        if("W" in venta["Size"]):
+            venta["Size"] = venta["Size"][:-1]
+        if float(venta["Size"]) in most_popular_sizes and "Error" not in venta["Size"]:
             index = most_popular_sizes.index(float(venta["Size"]))
             count_of_sales[index] += 1
             if(float(venta["Sale Price"][1:]) > max_of_sales[index]):
@@ -149,23 +162,59 @@ def print_famous_sizes(lista_tallas):
 
 def concurrent_search(nombre_de_producto):  
     driver = inicializar_buscador()
-    entrypoint = 'https://stockx.com/search?s='+nombre_de_producto
+    driver.get('https://stockx.com') 
+    time.sleep(5)
+    #driver.get(entrypoint)
+    #time.sleep(2)
+    print("puedo aceptar cookies?")
+    aceptar_cookies(driver)
+
+    for queden_nombres in nombre_de_producto:
+        print("????? Probando con: ",queden_nombres)
+        entrypoint = 'https://stockx.com/search?s='+queden_nombres
+        time.sleep(2)
+        driver.get(entrypoint)  
+        time.sleep(5)
+
+        time.sleep(4)
+        print("Buscando")
+        zapatilla_buscada =  WebDriverWait(driver, 4).until(EC.presence_of_all_elements_located((By.XPATH, "//div[contains(@class,'ProductTile')]//a[contains(@data-testid,'Link')]")))
+        print("ola?",len(zapatilla_buscada))
+        
+        zapatilla_buscada[0].click()
+        time.sleep(6)
+        informacion_ventas = obtain_sales_history(driver)
+        popular_size_info = get_popular_size_info(informacion_ventas)
+        la_zapa = {}
+        la_zapa.update({"_id":queden_nombres,"Nombre":queden_nombres,"Total gastado":obtain_money_spent_on_shoe(informacion_ventas),"Media":obtain_money_spent_on_shoe(informacion_ventas)/len(informacion_ventas),"Popular Size":popular_size_info})
+        lista_stockx.append(la_zapa)
+        print("LA ZAPA??",la_zapa)
+
+
+def concurrent_search2(nombre_de_producto):  
+    driver = inicializar_buscador()
+    entrypoint = nombre_de_producto
     time.sleep(2)
     driver.get(entrypoint)  
+    time.sleep(5)
+    driver.get(entrypoint)
+    time.sleep(2)
     print("puedo aceptar cookies?")
     aceptar_cookies(driver)
     time.sleep(4)
-
-    zapatilla_buscada =  WebDriverWait(driver, 4).until(EC.presence_of_all_elements_located((By.XPATH, "//div[contains(@class,'product-ti')]")))
-
-    zapatilla_buscada[0].click()
+    print("Buscando")
+    
     time.sleep(4)
+    '''
     informacion_ventas = obtain_sales_history(driver)
     popular_size_info = get_popular_size_info(informacion_ventas)
     la_zapa = {}
     la_zapa.update({"_id":nombre_de_producto,"Nombre":nombre_de_producto,"Total gastado":obtain_money_spent_on_shoe(informacion_ventas),"Media":obtain_money_spent_on_shoe(informacion_ventas)/len(informacion_ventas),"Popular Size":popular_size_info})
     lista_stockx.append(la_zapa)
-    driver.quit()
+    print("LA ZAPA??",la_zapa)
+    '''
+    
+    #driver.quit()
 
 def main():
     myclient = pymongo.MongoClient(
@@ -176,8 +225,19 @@ def main():
 
     with futures.ThreadPoolExecutor() as executor: #default/optimized number of threads
         executor.map(concurrent_search, lista_nombres_disponibles)
-    
-    
+
+    #chunks = np.array_split(lista_nombres_disponibles, 6)
+    #print("LECHUNKS: ",chunks)
+
+
+    #with futures.ThreadPoolExecutor(max_workers=6) as executor:
+    #    executor.map(concurrent_search, [chunk for chunk in chunks])
+
+    #with futures.ThreadPoolExecutor(max_workers=4) as executor:
+    #    executor.map(concurrent_search,lista_nombres_disponibles)
+    #concurrent_search(lista_nombres_disponibles)
+
+
     print("_________________________________________________________ STOCKX")
     print(lista_stockx)
     print("_________________________________________________________ MONGODB")
@@ -203,6 +263,8 @@ def main():
 if "__main__" == __name__:
     lista_stockx = []
     lista_nombres_disponibles = []
+    lista_urls = []
+    #concurrent_search2("https://stockx.com/")
     main()
     
     '''driver = inicializar_buscador()
